@@ -1,3 +1,3 @@
 # *projekti nimi*
-## Osalejad
-Jevgeni Golosov
+
+## Projekti kirjeldus
