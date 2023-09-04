@@ -1,3 +1,3 @@
-# **projekti nimi
+# *projekti nimi*
 ## Osalejad
 Jevgeni Golosov
