@@ -50,7 +50,7 @@ Programmi käivitamiseks vaja, et arvutil oleks paigaldadud kõik vajalikud mood
 git clone https://github.com/JevGolo/proge4_project.git
 ```
 
-2. Minge kausta proge4_project ja siis kausta "src"
+2. Minge kausta "proge4_project" ja siis kausta "src"
 ```
 cd proge4_project
 cd src
