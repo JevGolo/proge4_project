@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <title>Keemia kalulaator</title>
+</head>
+
+<body>
+    <div class="header-container">
+        <a href="/main">
+            <span>Keemia kalkulaator</span>
+        </a>
+    </div>
+    <div class="content-wrapper">
+        <div class="container-header">Reaktsioon:</div>
+        <form id="input-button-container" method="POST" action="/result">
+            <input name="reaction" id="input-react" type="text" />
+            <button type="submit" id="calc-button">
+          <img id="react-logo" src="{{ url_for('static', filename='logo.svg') }}" alt="" />
+        </button>
+        </form>
+        <a id="help-button" href="/help">
+            <p>Kuidas see töötab?</p>
+        </a>
+    </div>
+</body>
+
+</html>

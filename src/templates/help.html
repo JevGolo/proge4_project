@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <title>Keemia kalulaator</title>
+</head>
+
+<body>
+    <div class="header-container">
+        <a href="/main">
+            <span>Keemia kalkulaator</span>
+        </a>
+    </div>
+    <div class="content-wrapper">
+        <div id="help-list-container">
+            <div class="help-list-item">
+                1. /cal veebilehel kirjutate oma reaktsiooni kujul A <b>+</b> B
+                <b>=</b> C <b>+</b> D
+            </div>
+            <div class="help-list-item">
+                2. Vajutage nuppu sisendi kõrval kalkulaatori logotpüübiga
+            </div>
+            <div class="help-list-item">3. NB! kirja suurus on oluline!</div>
+            <div class="help-list-item"><img id="help-image" src="{{ url_for('static', filename='meme.png') }}" alt="meme" /></div>
+        </div>
+    </div>
+</body>
+
+</html>
