@@ -2,9 +2,7 @@ let hidden_input = document.getElementById('reaction');
 let user_react = hidden_input.getAttribute('data-r');
 
 
-let res_page = document.getElementById('result-page-content');
-
-$.post("/get_balanced_reaction",
+$.post("/get_coeffs",
   {
     react: user_react
   },
