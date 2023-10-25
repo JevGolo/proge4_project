@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
     <title>Keemia kalulaator</title>
-</head>
+  </head>
 
-<body>
+  <body>
+    <input type="hidden" data-r="{{ react }}" id="reaction" />
     <div class="header-container">
-        <a href="/main">
-            <span>Keemia kalkulaator</span>
-        </a>
+      <a href="/main">
+        <span>Keemia kalkulaator</span>
+      </a>
     </div>
-    <div class="content-wrapper">
-        <div class="container-header">
-            Vastus
+
+    <div id="loading">
+        Arvutan...
+        <div id="loader-container">
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
         </div>
-        <div id="result">NaOH + H2SO4 --> H2O + NaSO4</div>
-        <a href="/calc" class="href"><button id="start-button">tagasi</button></a
-      >
     </div>
+
+    <div class="content-wrapper" id="result-page-content">
+      <div class="container-header">Vastus</div>
+      <div id="result">NaOH + H2SO4 --> H2O + NaSO4</div>
+      <a href="/calc" class="href"><button id="start-button">tagasi</button></a>
+    </div>
+    <script src="{{ url_for('static', filename='result_script.js') }}"></script>
   </body>
 </html>

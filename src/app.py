@@ -2,6 +2,9 @@ from flask import Flask, redirect, render_template, request
 
 app = Flask(__name__)
 
+messages = {
+    "empty_input" : "Palun sisestage andmed!"
+}
 
 @app.route("/")
 def index():
@@ -15,8 +18,10 @@ def main():
 
 @app.route("/calc")
 def calc():
-    return render_template("calc.html")
+    return render_template("calc.html", mess="")
 
+def reaction_control():
+    pass
 
 @app.route("/result", methods=['POST', 'GET'])
 def result():
@@ -25,7 +30,7 @@ def result():
         if reaction.strip() == "":
             return redirect("/calc")
         else:
-            return render_template("result.html")
+            return render_template("result.html", react=request.form['reaction'])
     else:
         return redirect("/calc")
 
