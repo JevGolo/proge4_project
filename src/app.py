@@ -39,6 +39,17 @@ def result():
 def help():
     return render_template("help.html")
 
+def calc_react( reaction_input ):
+    r = "success"
+    return r
+
+@app.route("/get_balanced_reaction", methods=['POST', 'GET'])
+def get_balanced_reaction():
+    if request.method == "POST":
+        return calc_react( request.form['react'] )
+    else:
+        return redirect("/main")
+
 
 if __name__ == "__main__":
     app.run(host = "localhost", port = 80, debug=True)
