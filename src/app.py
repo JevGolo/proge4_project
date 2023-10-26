@@ -51,11 +51,11 @@ def calc_react( reaction_input ):
         
         coeffs_str_list = [f'{value}' for key, value in r.coefficients.items() ]
         
-        elements_output = reactants_str + products_str
         coeffs_output = [ int(el) for el in coeffs_str_list ]
 
         output = {
-            'elements' : elements_output,
+            'reactants' : reactants_str,
+            'products' : products_str,
             'coeffs' : coeffs_output,
         }
 
