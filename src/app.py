@@ -1,5 +1,6 @@
 from flask import Flask, redirect, render_template, request
 from chemlib import Compound, Reaction
+import json
 
 app = Flask(__name__)
 
@@ -36,21 +37,32 @@ def help():
 
 def calc_react( reaction_input ):
 
-    parts = reaction_input.split("=")
-    reactants_str = [a.strip() for a in parts[0].split("+")]
-    products_str = [a.strip() for a in parts[1].split("+")]
+    try:
+        parts = reaction_input.split("=")
+        reactants_str = [a.strip() for a in parts[0].split("+")]
+        products_str = [a.strip() for a in parts[1].split("+")]
 
-    reactants = [Compound(el) for el in reactants_str]
-    products = [Compound(el) for el in products_str]
+        reactants = [Compound(el) for el in reactants_str]
+        products = [Compound(el) for el in products_str]
 
+        
+        r = Reaction( reactants, products)
+        r.balance()
+        
+        coeffs_str_list = [f'{value}' for key, value in r.coefficients.items() ]
+        
+        elements_output = reactants_str + products_str
+        coeffs_output = [ int(el) for el in coeffs_str_list ]
+
+        output = {
+            'elements' : elements_output,
+            'coeffs' : coeffs_output,
+        }
+
+        return json.dumps( output ), 200
     
-    r = Reaction( reactants, products)
-    r.balance()
-    
-    coeffs_str_list = [f'{value}' for key, value in r.coefficients.items() ]
-    coeffs_output = ",".join(coeffs_str_list)
-
-    return coeffs_output
+    except:
+        return "error", 200
 
 @app.route("/get_coeffs", methods=['POST', 'GET'])
 def get_coeffs():
