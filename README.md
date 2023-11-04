@@ -94,3 +94,6 @@ python app.py
  ```
 
 8. Avage brauser ja sisestage see aadress otsingule.
+
+## Poster
+![poster](poster/poster.png)
